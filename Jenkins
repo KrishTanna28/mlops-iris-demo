@@ -1,6 +1,16 @@
 pipeline {
   agent any
 
+  options {
+    disableConcurrentBuilds()
+    skipDefaultCheckout(false)
+  }
+
+  triggers {
+    // This forces Jenkins to check repo on every run
+    pollSCM('* * * * *') // every minute, or remove if not needed
+  }
+
   stages {
     stage('Checkout') {
       steps {
@@ -31,6 +41,39 @@ pipeline {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
